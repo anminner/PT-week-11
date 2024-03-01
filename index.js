@@ -1,11 +1,28 @@
-const currentPlayer = 'X';
-const moves = ['', '', '', '', '', '', '', '', ''];
+let currentPlayer = 'X';
+let moves = ['', '', '', '', '', '', '', '', ''];
+const gameGrid = document.getElementById('game-grid');
 
+for (let i = 0; i < 3; i++) {
+    const row = document.createElement('div');
+    row.classList.add('row');
+
+    for (let j = 0; j < 3; j++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.onclick = () => playMove(i * 3 + j);
+
+        row.appendChild(cell);
+    }
+
+    gameGrid.appendChild(row);
+}
 function playMove(index) {
+    console.log(index);
     if (moves[index] === '' && !checkWinner()) {
         moves[index] = currentPlayer;
         document.getElementsByClassName('cell')[index].textContent = currentPlayer;
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        console.log(currentPlayer)
         document.getElementById('turn').textContent = `${currentPlayer}'s Turn`;
         checkWinner();
     }
