@@ -9,19 +9,27 @@
 <body>
     <h1 id="turn">X's Turn</h1>
 
-    <div id="game-grid">
-        <div class="cell" onclick="playMove(0)"></div>
-        <div class="cell" onclick="playMove(1)"></div>
-        <div class="cell" onclick="playMove(2)"></div>
-        <div class="cell" onclick="playMove(3)"></div>
-        <div class="cell" onclick="playMove(4)"></div>
-        <div class="cell" onclick="playMove(5)"></div>
-        <div class="cell" onclick="playMove(6)"></div>
-        <div class="cell" onclick="playMove(7)"></div>
-        <div class="cell" onclick="playMove(8)"></div>
-    </div>
+    <div id="game-grid"></div>
     <button onclick="restartGame()">Restart Game</button>
     <div id="result" class="alert"></div>
     <script src="index.js"></script>
+    <script>
+        const gameGrid = document.getElementById('game-grid');
+
+        for (let i = 0; i < 3; i++) {
+            const row = document.createElement('div');
+            row.classList.add('row');
+
+            for (let j = 0; j < 3; j++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.onclick = () => playMove(i * 3 + j);
+
+                row.appendChild(cell);
+            }
+
+            gameGrid.appendChild(row);
+        }
+    </script>
 </body>
 </html>

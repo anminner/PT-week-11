@@ -1,20 +1,23 @@
-.cell {
-    width: 100px;
-    height: 100px;
-    background-color: #ddd;
-    border: 1px solid #000;
-    display: inline-block;
-    margin: 5px;
-    text-align: center;
-    line-height: 100px;
-    font-size: 2em;
-    cursor: pointer;
+#board {
+    border: solid red 2px;
+    height: 300px; 
+    width: 300px; 
+    display: flex;
+    flex-direction: column;
 }
 
-.alert {
-    display: none;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #f44336;
-    color: #fff;
+.row {
+    display: flex;
+    flex-grow: 1;
+}
+
+.cell {
+    border: solid black 2px;
+    height: 100px; 
+    width: 100px; 
+    font-size: 2cm; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
